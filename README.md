@@ -34,7 +34,7 @@ my_snowflake_project/  <br>
    ```bash
    git clone https://github.com/Kedar18xda/my_snowflake_project
    cd my_snowflake_project
-
+   ```
 2. **Install dbt:**
 
 If you haven't installed dbt yet, follow the installation instructions from the dbt documentation.
@@ -58,7 +58,7 @@ my_snowflake_profile:
       schema: public
       threads: 1
       client_session_keep_alive: False
-
+```
 ## Build and Run Instructions
 
 1. **Install dependencies:**
@@ -69,12 +69,12 @@ Make sure you have installed dbt and your profiles are correctly configured.
 
 ```bash
 dbt deps
-
+```
 3. **Clean up any previously compiled files:**
 
 ```bash
 dbt clean
-
+```
 4.**Run the dbt models:**
 
 ```bash
@@ -84,7 +84,7 @@ dbt run
 
 ```bash
 dbt test
-
+```
 ## Custom Tests
 
 Custom tests are defined as macros for the customer_summary model in the macros directory and referenced in the schema.yml file.
@@ -110,7 +110,7 @@ select *
 from {{ model }}
 where {{ column_name }} > {{ most_recent_order_column }}
 {% endtest %}
-
+```
 **`macros/test_assert_non_negative_orders.sql`:**
 
 ```bash
@@ -119,7 +119,7 @@ select *
 from {{ model }}
 where {{ column_name }} < 0
 {% endtest %}
-
+```
 **`macros/test_assert_valid_customer_names.sql`:**
 
 ```bash
@@ -129,7 +129,7 @@ from {{ model }}
 where {{ column_name }} is null
    or {{ column_name }} = ''
 {% endtest %}
-
+```
 **`macros/test_assert_positive_lifetime_value.sql`:**
 
 ```bash
@@ -138,7 +138,7 @@ select *
 from {{ model }}
 where {{ column_name }} < 0
 {% endtest %}
-
+```
 ### Referencing Custom Tests in schema.yml
 In the schema.yml, custom tests are referenced and provided the necessary parameters.
 
@@ -216,7 +216,7 @@ models:
         data_tests:
           - assert_positive_lifetime_value:
                column_name: customer_lifetime_value
-
+```
 ## Additional Resources
 
 [dbt Documentation](https://docs.getdbt.com)
