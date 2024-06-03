@@ -1,0 +1,19 @@
+name: 'my_snowflake_project'
+version: '1.0.0'
+config-version: 2
+
+# Specify the default database and schema for your models
+profile: 'my_snowflake_project'
+
+# Configure paths for your models, tests, and macros
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+# Define the models configuration
+models:
+  my_snowflake_project:
+    marts:
+      core:
+        customer_summary:
+          materialized: table
