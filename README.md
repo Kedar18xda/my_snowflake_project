@@ -79,7 +79,7 @@ dbt clean
 
 ```bash
 dbt run
-
+```
 5. **Run dbt tests:**
 
 ```bash
