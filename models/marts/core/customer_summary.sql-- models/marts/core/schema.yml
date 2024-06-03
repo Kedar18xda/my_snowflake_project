@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: customers
+    description: "Customer details."
+    columns:
+      - name: id
+        description: "Unique identifier for each customer."
+        data_tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "First name of the customer."
+      - name: last_name
+        description: "Last name of the customer."
+
+  - name: orders
+    description: "Order details."
+    columns:
+      - name: user_id
+        description: "ID of the customer who placed the order."
+        data_tests:
+          - not_null
+      - name: first_order
+        description: "Date of the first order."
+      - name: most_recent_order
+        description: "Date of the most recent order."
+      - name: number_of_orders
+        description: "Total number of orders placed by the customer."
+
+  - name: payments
+    description: "Payment details."
+    columns:
+      - name: user_id
+        description: "ID of the customer who made the payment."
+        data_tests:
+          - not_null
+      - name: customer_lifetime_value
+        description: "Total amount paid by the customer."
+
+  - name: customer_summary
+    description: "Summary of customer details, orders, and payments."
+    columns:
+      - name: id
+        description: "Unique identifier for each customer."
+      - name: first_name
+        description: "First name of the customer."
+        data_tests:
+          - assert_valid_customer_names:
+              column_name: first_name
+      - name: last_name
+        description: "Last name of the customer."
+        data_tests:
+          - assert_valid_customer_names:
+              column_name: last_name
+      - name: first_order
+        description: "Date of the first order."
+        data_tests:
+          - assert_first_order_before_most_recent:
+              column_name: first_order
+              most_recent_order_column: most_recent_order
+      - name: most_recent_order
+        description: "Date of the most recent order."
+      - name: number_of_orders
+        description: "Total number of orders placed by the customer."
+        data_tests:
+          - assert_non_negative_orders:
+               column_name: number_of_orders
+      - name: customer_lifetime_value
+        description: "Total amount paid by the customer."
+        data_tests:
+          - assert_positive_lifetime_value:
+               column_name: customer_lifetime_value
