@@ -43,7 +43,7 @@ If you haven't installed dbt yet, follow the installation instructions from the 
 
 Ensure your profiles.yml file is configured to connect to your Snowflake instance. This file is typically located in ~/.dbt/profiles.yml. Here is an example configuration:
 
-```bash
+```
 my_snowflake_profile:
   target: dev
   outputs:
@@ -67,22 +67,22 @@ Make sure you have installed dbt and your profiles are correctly configured.
 
 2. **Initialize the dbt environment:**
 
-```bash
+```
 dbt deps
 ```
 3. **Clean up any previously compiled files:**
 
-```bash
+```
 dbt clean
 ```
 4.**Run the dbt models:**
 
-```bash
+```
 dbt run
 ```
 5. **Run dbt tests:**
 
-```bash
+```
 dbt test
 ```
 ## Custom Tests
@@ -104,7 +104,7 @@ Ensure that the customer_lifetime_value is not negative.
 ### Custom Test Definitions
 **`macros/test_assert_first_order_before_most_recent.sql`:**
 
-```bash
+```
 {% test assert_first_order_before_most_recent(model, column_name, most_recent_order_column) %}
 select *
 from {{ model }}
@@ -113,7 +113,7 @@ where {{ column_name }} > {{ most_recent_order_column }}
 ```
 **`macros/test_assert_non_negative_orders.sql`:**
 
-```bash
+```
 {% test assert_non_negative_orders(model, column_name) %}
 select *
 from {{ model }}
@@ -122,7 +122,7 @@ where {{ column_name }} < 0
 ```
 **`macros/test_assert_valid_customer_names.sql`:**
 
-```bash
+```
 {% test assert_valid_customer_names(model, column_name) %}
 select *
 from {{ model }}
@@ -132,7 +132,7 @@ where {{ column_name }} is null
 ```
 **`macros/test_assert_positive_lifetime_value.sql`:**
 
-```bash
+```
 {% test assert_positive_lifetime_value(model, column_name) %}
 select *
 from {{ model }}
@@ -142,7 +142,7 @@ where {{ column_name }} < 0
 ### Referencing Custom Tests in schema.yml
 In the schema.yml, custom tests are referenced and provided the necessary parameters.
 
-```bash
+```
 version: 2
 
 models:
