@@ -219,7 +219,7 @@ models:
 ```
 ## Additional Resources
 
-[dbt Documentation](https://docs.getdbt.com)
+[dbt Documentation](https://docs.getdbt.com)<br>
 [Snowflake Documentation](https://docs.snowflake.com)
 
 ## Contact
