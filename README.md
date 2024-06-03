@@ -43,7 +43,7 @@ If you haven't installed dbt yet, follow the installation instructions from the 
 
 Ensure your profiles.yml file is configured to connect to your Snowflake instance. This file is typically located in ~/.dbt/profiles.yml. Here is an example configuration:
 
-```
+```yml
 my_snowflake_profile:
   target: dev
   outputs:
