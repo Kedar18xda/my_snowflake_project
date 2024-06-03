@@ -10,22 +10,22 @@ This dbt project creates a materialized view `customer_summary` in Snowflake, ag
 
 ## Project Structure
 
-my_snowflake_project/
-├── models/
-│ ├── marts/
-│ │ ├── core/
-│ │ │ ├── customer_summary.sql
-│ │ │ ├── customers.sql
-│ │ │ ├── orders.sql
-│ │ │ ├── payments.sql
-│ │ │ ├── schema.yml
-├── macros/
-│ │ ├── test_assert_first_order_before_most_recent.sql
-│ │ ├── test_assert_non_negative_orders.sql
-│ │ ├── test_assert_positive_lifetime_value.sql
-│ │ ├── test_assert_valid_customer_names.sql
-├── dbt_project.yml
-└── README.md
+my_snowflake_project/  
+├── models/  
+│ ├── marts/  
+│ │ ├── core/  
+│ │ │ ├── customer_summary.sql 
+│ │ │ ├── customers.sql  
+│ │ │ ├── orders.sql  
+│ │ │ ├── payments.sql  
+│ │ │ ├── schema.yml  
+├── macros/  
+│ │ ├── test_assert_first_order_before_most_recent.sql  
+│ │ ├── test_assert_non_negative_orders.sql  
+│ │ ├── test_assert_positive_lifetime_value.sql  
+│ │ ├── test_assert_valid_customer_names.sql  
+├── dbt_project.yml  
+└── README.md  
 
 ## Setup Instructions
 
